@@ -6,8 +6,8 @@ import {
 import KanbanColumn from "@/components/tasks/kanban/column";
 import KanbanItem from "@/components/tasks/kanban/item";
 import { TASKS_QUERY, TASK_STAGES_QUERY } from "@/graphql/queries";
-import { Task, TaskStage, TaskUpdateInput } from "@/graphql/schema.types";
-import { TasksQuery } from "@/graphql/types";
+import {  TaskUpdateInput } from "@/graphql/schema.types";
+import { TaskStagesQuery, TasksQuery } from "@/graphql/types";
 import { HttpError, useList, useNavigation, useUpdate } from "@refinedev/core";
 import { GetFieldsFromList } from "@refinedev/nestjs-query";
 import { ProjectCardMemo } from "@/components/tasks/kanban/card";
@@ -16,6 +16,9 @@ import { KanbanColumnSkeleton, ProjectCardSkeleton } from "@/components";
 import { UPDATE_TASK_STAGE_MUTATION } from "@/graphql/mutations";
 import { DragEndEvent } from "@dnd-kit/core";
 
+
+type Task = GetFieldsFromList<TasksQuery>
+type TaskStage = GetFieldsFromList<TaskStagesQuery> & {tasks: Task[]}
 
 
 

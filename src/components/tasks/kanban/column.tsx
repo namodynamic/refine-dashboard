@@ -6,7 +6,7 @@ import React from "react";
 
 type Props = {
   id: string,
-  data: UseDroppableArguments["data"],
+  data?: UseDroppableArguments["data"],
   title: string,
   count: number,
   description?: React.ReactNode,
